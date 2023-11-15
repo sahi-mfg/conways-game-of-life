@@ -14,18 +14,19 @@ def main():
     grid.random_fill(initial_live_cells)
     grid.set_neighbors()
 
-    iterations = st.sidebar.slider("Iterations", min_value=1, max_value=100, value=10)
-    pause = st.sidebar.checkbox("Pause")
     speed = st.sidebar.slider("Speed", min_value=0.1, max_value=2.0, value=0.5, step=0.1)
     if st.sidebar.button("Clear"):
         grid = Grid((grid_size, grid_size))
 
-    for _ in range(iterations):
-        if not pause:
-            st.text(format_grid(grid))
-            time.sleep(speed)
-            grid.game()
-            grid.actualize_grid()
+    if st.sidebar.button("Random"):
+        grid.random_fill(initial_live_cells)
+        grid.set_neighbors()
+
+    if st.sidebar.button("Step"):
+        st.text(format_grid(grid))
+        time.sleep(speed)
+        grid.game()
+        grid.actualize_grid()
 
 
 if __name__ == "__main__":
