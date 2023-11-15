@@ -1,6 +1,6 @@
 # Python implementation of Conway's game of life.
 
-The Game of Life was invented by British mathematician John H. Conway (1937-2020). It's an example of what's known as a two-dimensional cellular automaton. It runs on a rectangular array $(L \times H)$ of cells. A cell is represented by its coordinates $x$ and $y$, which verify $0 \leqsant x < L$ and $0 \leqsant y < H$.
+The Game of Life was invented by British mathematician John H. Conway (1937-2020). It's an example of what's known as a two-dimensional cellular automaton. It runs on a rectangular array $(L \times H)$ of cells. A cell is represented by its coordinates $x$ and $y$, which verify $0 \leq x < L$ and $0 \leq y < H$.
 A cell can be in two states: alive or dead. The dynamics of the game are expressed by the following transition rules:
 
 a living cell remains alive in the next generation if it is surrounded by 2 or 3 living neighbors; otherwise, it dies;
