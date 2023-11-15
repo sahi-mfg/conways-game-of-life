@@ -4,7 +4,7 @@ class Cell:
     def __init__(self, current_state: bool = False, future_state: bool = False, neighbors: list = None) -> None:
         self.current_state = current_state
         self.future_state = future_state
-        self.neighbors = neighbors
+        self.neighbors = [] if neighbors is None else neighbors
 
     def is_alive(self) -> bool:
         """whether the cell is alive or not."""
@@ -57,10 +57,16 @@ class Cell:
         self.current_state = self.future_state
 
     def __str__(self):
+        """the string representation of the cell."""
         return "X" if self.current_state else "-"
 
-    def compute_future_state(self, neighbors_count: int):
+    def compute_future_state(self) -> None:
         """compute the future state of the cell."""
+        neighbors_count = 0
+        for neighbors_cell in self.get_neighbors():
+            if neighbors_cell.is_alive():
+                neighbors_count += 1
+
         if self.is_alive():
             if neighbors_count < 2 or neighbors_count > 3:
                 self.die()
