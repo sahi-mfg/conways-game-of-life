@@ -49,11 +49,22 @@ class Cell:
     def get_neighbors(self) -> list:
         return self.neighbors
 
+    def get_neighbors_count(self) -> int:
+        """get the number of neighbors of the cell."""
+        return len(self.neighbors)
+
     def switch_state(self) -> None:
         self.current_state = self.future_state
 
     def __str__(self):
         return "X" if self.current_state else "-"
 
-    def compute_future_state(self):
-        pass
+    def compute_future_state(self, neighbors_count: int):
+        """compute the future state of the cell."""
+        if self.is_alive():
+            if neighbors_count < 2 or neighbors_count > 3:
+                self.die()
+        else:
+            if neighbors_count == 3:
+                self.live()
+        self.switch_state()
