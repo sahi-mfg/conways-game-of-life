@@ -19,5 +19,6 @@ We used python and object oriented programming to implement the game it and we c
 - Go to the directory: `cd conways-game-of-life`
 - install the requirements: `pip install -r requirements.txt`
 - Run the game: `python -m streamlit run main.py`
+- For now, you have to click 'step' each time to animate the game. Indeed, `streamlit` does not allow making the game interactive. We may use pygame in a future version.
 
 
