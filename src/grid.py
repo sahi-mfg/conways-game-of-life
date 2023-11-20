@@ -90,7 +90,7 @@ class Grid:
                 cell = self.get_cell(i, j)
                 cell.set_neighbors(self.get_neighbors(i, j))
 
-    def get_neighbors(self, x: int, y: int):
+    def get_neighbors(self, x: int, y: int) -> list:
         """get the neighbors of the cell at the given position.
 
         Parameters
@@ -160,14 +160,14 @@ class Grid:
                     cell.live()
                     cell.switch_state()
 
-    def game(self):
+    def game(self) -> None:
         """compute the future state of each cell."""
         for i in range(self.size[0]):
             for j in range(self.size[1]):
                 cell = self.get_cell(i, j)
                 cell.compute_future_state()
 
-    def actualize_grid(self):
+    def actualize_grid(self) -> None:
         """switch the cells in their future state."""
         for i in range(self.size[0]):
             for j in range(self.size[1]):
