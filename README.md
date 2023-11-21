@@ -11,14 +11,14 @@ The notion of "neighborhood" in the Game of Life is that of the 8 cells that can
 The game is played on an infinite grid, but in practice, we limit ourselves to a finite grid, which is initialized with a certain number of living cells. The game is then iterated by applying the transition rules to each cell of the grid. The game is said to be in a stable state if no cell changes state from one generation to the next, or if the grid is empty. The game is said to be in an oscillating state if it returns to a previous state after a certain number of generations. The game is said to be in a chaotic state if it does not return to a previous state after a certain number of generations.
 
 
-We used python and object oriented programming to implement the game it and we created an interface with streamlit to display it.
+We used python and object oriented programming to implement the game it and the game is run in CLI mode (so it does not require any external library).
+In further version, I will create a tkinter or pygame interface to have a better visualization of the game.
 
 # How to run it
 
 - Clone the repository: `git clone https://github.com/momosahi/conways-game-of-life.git` or `git clone git@github.com:momosahi/conways-game-of-life.git`
 - Go to the directory: `cd conways-game-of-life`
-- install the requirements: `pip install -r requirements.txt`
-- Run the game: `python -m streamlit run main.py`
-- For now, you have to click 'step' each time to animate the game. Indeed, `streamlit` does not allow making the game interactive. We may use pygame in a future version.
+- Run the game: `python main.py`
+
 
 
