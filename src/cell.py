@@ -58,7 +58,7 @@ class Cell:
 
     def __str__(self):
         """the string representation of the cell."""
-        return "🧛🏽‍♀️" if self.current_state else "☠️"
+        return "X" if self.current_state else "-"
 
     def compute_future_state(self) -> None:
         """compute the future state of the cell."""
