@@ -241,3 +241,4 @@ Pipfile.lock
 
 .idea/*
 .history/*
+.vscode/*
