@@ -1,7 +1,7 @@
 class Cell:
     """Class that represents a cell in the grid. It has a current state, a future state, and a list of neighbors."""
 
-    def __init__(self, current_state: bool = False, future_state: bool = False, neighbors: list = None) -> None:
+    def __init__(self, current_state: bool = False, future_state: bool = False, neighbors: list = []) -> None:
         self.current_state = current_state
         self.future_state = future_state
         self.neighbors = [] if neighbors is None else neighbors
