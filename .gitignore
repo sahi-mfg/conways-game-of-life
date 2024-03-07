@@ -239,6 +239,5 @@ fabric.properties
 
 Pipfile.lock
 
-.idea/*
-.history/*
-.vscode/*
+.history/
+.vscode/
