@@ -6,8 +6,10 @@ install:
 test:
 	python -m pytest -v
 
-run:
+run-cli:
 	python main.py
 
-run_gui:
-	python app.py
+run-flask-dev:
+	export FLASK_APP=app.py
+	export FLASK_ENV=development
+	flask run
