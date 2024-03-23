@@ -1,6 +1,6 @@
 install:
 	python -m pip install --upgrade pip
-	python -m pip install pytest
+	python -m pip install -r requirements.txt
 
 
 test:
@@ -10,4 +10,4 @@ run:
 	python main.py
 
 run_gui:
-	python main_gui.py
+	python app.py
