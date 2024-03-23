@@ -173,3 +173,11 @@ class Grid:
             for j in range(self.size[1]):
                 cell = self.get_cell(i, j)
                 cell.switch_state()
+
+    def clear(self) -> None:
+        """clear the grid."""
+        for i in range(self.size[0]):
+            for j in range(self.size[1]):
+                cell = self.get_cell(i, j)
+                cell.set_dead()
+                cell.switch_state()
