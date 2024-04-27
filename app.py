@@ -1,6 +1,5 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 from src.grid import Grid
-import time
 
 app = Flask(__name__, template_folder="templates")
 
@@ -15,19 +14,19 @@ def start():
     data = request.get_json()
     initial_cells_alive = int(data["initial_cells_alive"])
     num_iterations = int(data["num_iterations"])
-    speed = float(data["speed"])
 
     grid = Grid((30, 30))
     grid.random_fill(initial_cells_alive)
     grid.set_neighbors()
 
+    generations = []
     for _ in range(num_iterations):
-        print(grid.grid)
-        time.sleep(speed)
+        generation = [[cell.is_alive() for cell in row] for row in grid.grid]
+        generations.append(generation)
         grid.game()
         grid.actualize_grid()
 
-    return grid.grid
+    return jsonify(generations)
 
 
 if __name__ == "__main__":
