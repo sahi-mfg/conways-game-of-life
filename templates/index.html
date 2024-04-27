@@ -52,6 +52,36 @@
                 });
             });
 
+            $(document).ready(function(){
+                $('#start-button').click(function(){
+                    var initialCellsAlive = $('#initial-cells-alive').val();
+                    var numIterations = $('#num-iterations').val();
+
+                    $.ajax({
+                        url: '/start',
+                        method: 'POST',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            initial_cells_alive: initialCellsAlive,
+                            num_iterations: numIterations
+                        }),
+                        success: function(response) {
+                            var generations = response;
+                            var intervalId = setInterval(function() {
+                                if (generations.length === 0) {
+                                    clearInterval(intervalId);
+                                    return;
+                                }
+
+                                var gridData = generations.shift();
+                                updateGrid(gridData);
+                            }, 1000);
+                        }
+                    });
+
+                });
+            });
+
             function updateGrid(gridData) {
                 var gridContainer = $('#grid-container');
                 gridContainer.empty(); // Clear the current grid
